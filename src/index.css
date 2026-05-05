@@ -1,0 +1,212 @@
+/* =====================================================
+   KSC Portfolio — Global Styles
+   Themes: Ocean · Nature · South Indian · Iaido
+   ===================================================== */
+
+:root {
+  /* Ocean Color Palette — light theme default */
+  --bg-primary: #F5FAFA;
+  --bg-secondary: #EAF4F3;
+  --bg-deep: #09242C;
+  --bg-dark: #09242C;
+  --bg-dark-surface: #0E2F38;
+  --bg-dark-card: #143840;
+
+  --text-primary: #09242C;
+  --text-secondary: #2E6E78;
+  --text-muted: #7FB5BC;
+  --text-light: #F5FAFA;
+  --text-light-muted: #9FCDD3;
+
+  /* Teal/Ocean accent — replaces gold throughout */
+  --accent-gold: #0D9488;
+  --accent-gold-light: #14B8A6;
+  --accent-gold-dark: #0F766E;
+  --accent-teal: #0D9488;
+  --accent-teal-light: #14B8A6;
+  --accent-blue: #0369A1;
+  --accent-seafoam: #5EEAD4;
+  --accent-maroon: #0F766E;
+  --accent-maroon-light: #0D9488;
+  --accent-green: #047857;
+  --accent-green-light: #059669;
+
+  --border-light: rgba(13, 148, 136, 0.10);
+  --border-medium: rgba(13, 148, 136, 0.18);
+  --border-gold: rgba(13, 148, 136, 0.28);
+
+  /* Typography */
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Spacing */
+  --section-padding: clamp(80px, 10vw, 140px);
+  --container-max: 1200px;
+  --container-padding: clamp(20px, 5vw, 60px);
+
+  /* Transitions */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.45, 0, 0.55, 1);
+  --duration-fast: 200ms;
+  --duration-normal: 400ms;
+  --duration-slow: 700ms;
+}
+
+/* Reset */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.page-section {
+  scroll-margin-top: 72px;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; transition: color 0.2s ease; }
+img { max-width: 100%; height: auto; display: block; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+section { transition: background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--bg-secondary); }
+::-webkit-scrollbar-thumb { background: var(--accent-teal); border-radius: 2px; }
+
+/* Selection */
+::selection { background: var(--accent-teal); color: #fff; }
+
+/* Inputs */
+input::placeholder, textarea::placeholder { color: var(--text-muted); opacity: 0.6; }
+button:focus-visible { outline: 2px solid var(--accent-teal); outline-offset: 3px; }
+
+/* Utility */
+.font-display { font-family: var(--font-display); }
+
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+.section { padding: var(--section-padding) 0; }
+
+/* Gallery drag scroll */
+.gallery-scroll { overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; cursor: grab; }
+.gallery-scroll::-webkit-scrollbar { display: none; }
+.gallery-scroll:active { cursor: grabbing; }
+
+/* =====================================================
+   LEAF FLOAT ANIMATION — like birds on gowtham's site
+   ===================================================== */
+@keyframes leaf-float-1 {
+  0%   { transform: translateX(-120px) translateY(0px) rotate(-20deg); opacity: 0; }
+  5%   { opacity: 0.7; }
+  25%  { transform: translateX(25vw) translateY(-60px) rotate(15deg); }
+  50%  { transform: translateX(50vw) translateY(20px) rotate(-10deg); }
+  75%  { transform: translateX(75vw) translateY(-40px) rotate(20deg); }
+  95%  { opacity: 0.5; }
+  100% { transform: translateX(110vw) translateY(10px) rotate(-5deg); opacity: 0; }
+}
+@keyframes leaf-float-2 {
+  0%   { transform: translateX(-120px) translateY(0px) rotate(30deg); opacity: 0; }
+  8%   { opacity: 0.6; }
+  30%  { transform: translateX(30vw) translateY(50px) rotate(-25deg); }
+  55%  { transform: translateX(55vw) translateY(-30px) rotate(10deg); }
+  80%  { transform: translateX(80vw) translateY(35px) rotate(-15deg); }
+  95%  { opacity: 0.4; }
+  100% { transform: translateX(110vw) translateY(-20px) rotate(5deg); opacity: 0; }
+}
+@keyframes leaf-float-3 {
+  0%   { transform: translateX(-100px) translateY(0px) rotate(-5deg); opacity: 0; }
+  6%   { opacity: 0.55; }
+  20%  { transform: translateX(20vw) translateY(-80px) rotate(25deg); }
+  45%  { transform: translateX(45vw) translateY(30px) rotate(-20deg); }
+  70%  { transform: translateX(70vw) translateY(-50px) rotate(15deg); }
+  92%  { opacity: 0.3; }
+  100% { transform: translateX(112vw) translateY(0px) rotate(5deg); opacity: 0; }
+}
+@keyframes leaf-float-4 {
+  0%   { transform: translateX(-80px) translateY(0px) rotate(15deg); opacity: 0; }
+  10%  { opacity: 0.5; }
+  35%  { transform: translateX(35vw) translateY(40px) rotate(-30deg); }
+  60%  { transform: translateX(60vw) translateY(-25px) rotate(20deg); }
+  85%  { transform: translateX(85vw) translateY(30px) rotate(-10deg); }
+  96%  { opacity: 0.25; }
+  100% { transform: translateX(110vw) translateY(5px) rotate(5deg); opacity: 0; }
+}
+
+/* Leaf sway — for background decorative leaves */
+@keyframes leaf-sway {
+  0%, 100% { transform: rotate(-8deg) scale(1); }
+  50%       { transform: rotate(8deg) scale(1.04); }
+}
+@keyframes leaf-sway-slow {
+  0%, 100% { transform: rotate(-12deg) translateY(0px); }
+  33%       { transform: rotate(5deg) translateY(-10px); }
+  66%       { transform: rotate(-3deg) translateY(5px); }
+}
+
+/* =====================================================
+   OCEAN WAVE ANIMATION
+   ===================================================== */
+@keyframes wave-flow-1 {
+  0%   { d: path("M0,40 C150,20 350,60 500,40 C650,20 850,60 1000,40 C1150,20 1350,60 1440,40 L1440,80 L0,80 Z"); }
+  50%  { d: path("M0,40 C150,60 350,20 500,40 C650,60 850,20 1000,40 C1150,60 1350,20 1440,40 L1440,80 L0,80 Z"); }
+  100% { d: path("M0,40 C150,20 350,60 500,40 C650,20 850,60 1000,40 C1150,20 1350,60 1440,40 L1440,80 L0,80 Z"); }
+}
+@keyframes wave-translate-1 {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes wave-translate-2 {
+  0%   { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
+}
+@keyframes wave-translate-3 {
+  0%   { transform: translateX(-20%); }
+  100% { transform: translateX(-70%); }
+}
+
+/* Bubble float */
+@keyframes bubble-rise {
+  0%   { transform: translateY(0) scale(1); opacity: 0.5; }
+  50%  { transform: translateY(-50px) scale(1.1) translateX(8px); opacity: 0.3; }
+  100% { transform: translateY(-100px) scale(0.8) translateX(-5px); opacity: 0; }
+}
+
+/* Grain overlay — subtle film texture */
+body::after {
+  content: '';
+  position: fixed;
+  inset: -200%;
+  width: 400%;
+  height: 400%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.4'/%3E%3C/svg%3E");
+  opacity: 0.02;
+  pointer-events: none;
+  z-index: 1000;
+  animation: grain 0.5s steps(2) infinite;
+}
+@keyframes grain {
+  0%, 100% { transform: translate(0,0); }
+  20%  { transform: translate(2%, -3%); }
+  40%  { transform: translate(-2%, 2%); }
+  60%  { transform: translate(1%, 3%); }
+  80%  { transform: translate(-3%, -1%); }
+}
+
+@media (max-width: 768px) {
+  :root { --section-padding: clamp(60px, 12vw, 100px); }
+}
